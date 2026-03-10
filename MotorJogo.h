@@ -15,6 +15,7 @@ private:
     int vitorias;
     int derrotas;
     int empates;
+    int nivelBot;
     Ranking ranking;
 
     void imprimirInfo() const;
@@ -24,10 +25,14 @@ private:
 public:
     MotorJogo();
 
-    void configurarJogadores(std::unique_ptr<Jogador> j1, std::unique_ptr<Jogador> j2, int quemInicia);
+    void configurarJogadores(std::unique_ptr<Jogador> j1, std::unique_ptr<Jogador> j2, int quemInicia, int nivel);
     void jogar();
     void resetarPartida();
     void exibirRanking() const;
+
+    bool suspenderJogo(const std::string& arquivo) const;
+    bool carregarJogo(const std::string& arquivo);
+    bool temJogoSuspenso(const std::string& arquivo) const;
 
     int getVitorias() const;
     int getDerrotas() const;
