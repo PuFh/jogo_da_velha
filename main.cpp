@@ -35,6 +35,7 @@ void exibirMenu() {
     std::cout << "1. Iniciar novo jogo\n";
     std::cout << "2. Escolher quem inicia\n";
     std::cout << "3. Modo de dificuldade\n";
+    std::cout << "5. Mostrar Top 10\n";
     std::cout << "6. Sair\n";
     std::cout << "===========================\n";
 }
@@ -48,6 +49,8 @@ int main() {
     while (true) {
         exibirMenu();
         int op = lerOpcao("Escolha: ", 1, 6);
+
+        if (op == 4) { std::cout << "Opcao invalida.\n"; continue; }
 
         switch (op) {
             case 1: {
@@ -84,6 +87,10 @@ int main() {
                 std::cout << "Nivel alterado!\n";
                 break;
             }
+
+            case 5:
+                motor.exibirRanking();
+                break;
 
             case 6: {
                 int conf = lerOpcao("Confirma saida? (1=Sim / 0=Nao): ", 0, 1);

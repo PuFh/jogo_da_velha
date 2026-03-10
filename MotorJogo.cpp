@@ -17,11 +17,19 @@ void MotorJogo::imprimirInfo() const {
 }
 
 void MotorJogo::imprimirEstatisticas() const {
-    std::cout << "\n=== Estatisticas ===\n";
+    std::cout << "\n=== Estatisticas da sessao ===\n";
     std::cout << "Vitorias: " << vitorias
               << " | Empates: " << empates
               << " | Derrotas: " << derrotas << "\n";
-    std::cout << "====================\n";
+    std::cout << "==============================\n";
+}
+
+void MotorJogo::registrarNoRanking() {
+    std::string nome;
+    std::cout << "Digite seu nome para o ranking: ";
+    std::cin >> nome;
+    ranking.registrarResultado(nome, vitorias, empates, derrotas);
+    std::cout << "Resultado salvo no ranking!\n";
 }
 
 void MotorJogo::jogar() {
@@ -43,12 +51,13 @@ void MotorJogo::jogar() {
             tabuleiro.imprimirTabuleiro();
             std::cout << "\n*** " << jogadores[turnoAtual]->getNome() << " venceu! ***\n";
 
-            if (jogadores[turnoAtual]->getSimbolo() == jogadores[0]->getSimbolo())
-                turnoAtual == 0 ? vitorias++ : derrotas++;
+            if (turnoAtual == 0)
+                vitorias++;
             else
-                turnoAtual == 1 ? derrotas++ : vitorias++;
+                derrotas++;
 
             imprimirEstatisticas();
+            registrarNoRanking();
             resetarPartida();
             return;
         }
@@ -58,6 +67,7 @@ void MotorJogo::jogar() {
             std::cout << "\n*** Empate! ***\n";
             empates++;
             imprimirEstatisticas();
+            registrarNoRanking();
             resetarPartida();
             return;
         }
@@ -69,6 +79,10 @@ void MotorJogo::jogar() {
 void MotorJogo::resetarPartida() {
     tabuleiro.reset();
     turnoAtual = 0;
+}
+
+void MotorJogo::exibirRanking() const {
+    ranking.exibirTop10();
 }
 
 int MotorJogo::getVitorias() const { return vitorias; }

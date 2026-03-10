@@ -2,7 +2,7 @@ CXX      = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra
 
 SRCS = main.cpp Tabuleiro.cpp Jogador.cpp JogadorHumano.cpp \
-       BotAleatorio.cpp BotTatico.cpp MotorJogo.cpp
+       BotAleatorio.cpp BotTatico.cpp MotorJogo.cpp Ranking.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 TARGET = jogo_da_velha
