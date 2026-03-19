@@ -147,7 +147,7 @@ bool MotorJogo::carregarJogo(const std::string& arquivo) {
         }
     }
 
-    auto criarJogador = [&](const std::string& tipo, const std::string& nome, char simbolo) -> std::unique_ptr<Jogador> {
+    auto criarJogador = [&](const std::string& tipo, const std::string& nome, char simbolo) -> std::unique_ptr<Jogador> { //nivel
         char adv = (simbolo == 'X') ? 'O' : 'X';
         if (tipo == "HUMANO")
             return std::make_unique<JogadorHumano>(nome, simbolo);

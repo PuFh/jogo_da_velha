@@ -69,5 +69,5 @@ char Tabuleiro::getCasa(int pos) const {
 }
 
 void Tabuleiro::corrigirContador() {
-    if (numJogadas > 0) numJogadas--;
+    if (numJogadas > 0) numJogadas--;//desfaz jogadas simuladas
 }

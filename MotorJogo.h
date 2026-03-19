@@ -10,7 +10,7 @@
 class MotorJogo {
 private:
     Tabuleiro tabuleiro;
-    std::unique_ptr<Jogador> jogadores[2];
+    std::unique_ptr<Jogador> jogadores[2];//ocorre poli, pois ele chama escolher jogador
     int turnoAtual;
     int vitorias;
     int derrotas;

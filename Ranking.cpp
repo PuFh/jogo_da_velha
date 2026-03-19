@@ -26,7 +26,7 @@ void Ranking::salvarArquivo() const {
 
 void Ranking::registrarResultado(const std::string& nome, int vitorias, int empates, int derrotas) {
     for (auto& e : entradas) {
-        if (e.nome == nome) {
+        if (e.nome == nome) {//acumula resultado
             e.vitorias += vitorias;
             e.empates  += empates;
             e.derrotas += derrotas;
@@ -47,7 +47,7 @@ void Ranking::exibirTop10() const {
 
     auto copia = entradas;
     std::sort(copia.begin(), copia.end(), [](const EntradaRanking& a, const EntradaRanking& b) {
-        return a.vitorias > b.vitorias;
+        return a.vitorias > b.vitorias;//ranqueamento
     });
 
     std::cout << "\n======= TOP 10 =======\n";

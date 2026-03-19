@@ -6,7 +6,7 @@
 
 class BotAleatorio : public Jogador {
 protected:
-    std::mt19937 rng;
+    std::mt19937 rng;//num aleatorios
 
 public:
     BotAleatorio(const std::string& nome, char simbolo);

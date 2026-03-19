@@ -8,7 +8,7 @@ int BotTatico::tentarJogada(Tabuleiro& tab, char sim) const {
     for (int i = 0; i < 9; i++) {
         if (!tab.isPosicaoLivre(i)) continue;
 
-        tab.aplicarJogada(i, sim);
+        tab.aplicarJogada(i, sim);//simula uma jogada
         char vencedor = tab.verificarVencedor();
         tab.aplicarJogada(i, ' ');
         tab.corrigirContador();
@@ -19,7 +19,7 @@ int BotTatico::tentarJogada(Tabuleiro& tab, char sim) const {
 }
 
 int BotTatico::escolherJogada(Tabuleiro& tab) {
-    int pos = tentarJogada(tab, simbolo);
+    int pos = tentarJogada(tab, simbolo);//tenta vencer
 
     if (pos == -1 && nivel == NivelBot::MEDIO)
         pos = tentarJogada(tab, simboloAdversario);

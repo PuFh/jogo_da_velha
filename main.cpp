@@ -60,6 +60,7 @@ int main() {
                 if (temSave) {
                     std::cout << "\n1. Novo jogo\n2. Continuar jogo suspenso\n";
                     int sub = lerOpcao("Escolha: ", 1, 2);
+                    
 
                     if (sub == 2) {
                         if (motor.carregarJogo(ARQUIVO_SAVE)) {
@@ -84,6 +85,7 @@ int main() {
                 auto humano = std::make_unique<JogadorHumano>("Humano", 'X');
                 auto bot    = criarBot('O', 'X', nivelBot);
 
+                //transfere os jogadores para motor
                 motor.configurarJogadores(std::move(humano), std::move(bot), inicio, nivelBot);
                 emPartida = true;
                 motor.jogar();

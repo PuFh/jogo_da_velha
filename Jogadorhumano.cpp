@@ -11,7 +11,7 @@ int JogadorHumano::escolherJogada(Tabuleiro& tab) {
     while (true) {
         std::cout << nome << " [" << simbolo << "], escolha uma posicao (1-9, 0 para suspender): ";
 
-        if (!(std::cin >> pos)) {
+        if (!(std::cin >> pos)) {//entrada inválida
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cout << "Entrada invalida. Digite um numero.\n";
